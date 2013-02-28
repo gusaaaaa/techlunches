@@ -7,7 +7,7 @@ Compare the customer's database with [OFAC][1]'s [Specially Designated Nationals
 ## Requirements
 
 1. Research (and use) [OFAC gem][3].
-2. Allow admin users to enqueue a job that downloads download current SDN list from OFAC's site.
+2. Allow admin users to enqueue a job that downloads current SDN list from OFAC's site.
 3. Allow admin users to enqueue a job that calculates OFAC score per customer.
 4. Admin users should be able to access previously created Score Lists.
 
@@ -130,9 +130,9 @@ end
 
    Solution:
 
-   - Edit ```/etc/mysql/my.cnf``` and add ```local-infile=1``` to ```[client]```, ```[mysqld]```, and ```[mysql]``` sections.
-   - Bundle install [mysql2 gem directly from GitHub][4]. Current [mysql2 version in RubyGems.org][5] (0.3.11) does not support local-infile.
-   - Add ```local-infile: true``` to ```database.yml```'s different environments.
+     - Edit ```/etc/mysql/my.cnf``` and add ```local-infile=1``` to ```[client]```, ```[mysqld]```, and ```[mysql]``` sections.
+     - Bundle install [mysql2 gem directly from GitHub][4]. Current [mysql2 version in RubyGems.org][5] (0.3.11) does not support local-infile.
+     - Add ```local-infile: true``` to ```database.yml```'s different environments.
 
 3. OFAC gem's ```OfacSdnLoader.load_current_sdn_file``` does not return a status. Unsolved.
 
@@ -160,7 +160,7 @@ class CreateScores < ActiveRecord::Migration
 end
 ```
 
-**Alternative**: creating a ```score_lists``` table, holding Score Lists history. Pros and cons?
+**Alternative**: Creating a ```score_lists``` table, holding Score Lists history. Pros and cons?
 
 ##### Model
 
